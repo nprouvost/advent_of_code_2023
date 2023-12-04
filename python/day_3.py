@@ -99,6 +99,7 @@ def get_acceptable_numbers_and_gears(numbers_and_gears):
         if np.any(line_mask & index_mask):
             # since two numbers correspond to one gear, avoid duplication in resulting array
             # (or divide by two result at the end)
+            # This assume no gear has two pairs of pairs connecting to it...
             if tuple(numbers_and_gears['gears'][inumbers]) in true_numbers_and_gears['gears']:
                 continue
             true_numbers_and_gears['gears'] += [tuple(numbers_and_gears['gears'][inumbers])]
